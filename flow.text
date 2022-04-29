@@ -30,3 +30,9 @@ People-News
     '''
     View root page function that returns the index page and its data
     '''
+
+5. Created an index.html file in app/templates/
+   used b4-$ shortcut for our html structure with bootstrap cdn links.(might delete later on when importing macros and download 
+                                                                         bootstrap manually)
+
+6. Run the application - imported app from app and called the main function.
