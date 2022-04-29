@@ -1,0 +1,20 @@
+
+People-News 
+
+1. Created our flask file structure;
+    app - templates 
+         static
+         __init__.py 
+         config.py 
+         error.py
+         views.py
+    license
+    readme.md 
+    run.py
+    gitignore - virtual/ 
+
+2. Created our virtual environment and added it in the gitignore file.
+
+3. All flask applications must create an application instance.
+    from flask import Flask 
+    app = Flask (__name__) - we create an instance of the class called app by passing in the __name__ variable.
