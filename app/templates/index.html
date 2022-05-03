@@ -2,12 +2,20 @@
 {% extends "base.html" %}
 {%import 'macros.html' as macro%}
 
-<div id="head">
-    <div class="overlay">
-      <br><br><br>    
+{% block header%}
+<div id="head">         
+      <img src="{{user_image}}" style="width: 1890px; height: 550px; background-position: center; background-size: cover;">
     </div>
 </div>
+{% endblock%}
 
+
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">    
+{% endblock %}
 
 </div>
 
