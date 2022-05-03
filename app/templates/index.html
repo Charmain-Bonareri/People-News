@@ -1,13 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> People News</title>
-        {% endif %}
-    </head>
-    <body>
-      
-    </html>
+
+{% extends "base.html" %}
+{%import 'macros.html' as macro%}
+
+<div id="head">
+    <div class="overlay">
+      <br><br><br>    
+    </div>
+</div>
+
+
+</div>
+
+{%block content%}
+
+<div class="container">
+<div class="row">
+  <div class = "col-md-12">
+    <h3 align="center">News Sources</h3>
+    <h4>{{ macro.displaySourcesList(sources)}}</h4>
+</div>
+</div>
+  
+</div>
+{%endblock%}

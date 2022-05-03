@@ -1,5 +1,6 @@
 import urllib.request,json
-from .models import Sources
+from .articles import Sources
+
 
 #Getting the API key
 api_key=None
@@ -33,6 +34,8 @@ def get_sources():
             sources_results_list = get_sources_response['sources']
             sources_results = process_sources(sources_results_list)
             
+        return sources_results
+            
 def process_sources(sources_list):
     '''
     Function  that processes the source result and transform them to a list of Objects
@@ -44,13 +47,15 @@ def process_sources(sources_list):
     sources_results = []
     for sources_item in sources_list:
         id = sources_item.get('id')
-        title = sources_item.get('title')
+        name = sources_item.get('name')
+        urlToImage = sources_item.get('urlToImage')
         category = sources_item.get('category')
         description = sources_item.get('description')
+        url=sources_item.get("url")
        
        
-        sources_object = Sources(id,title,category,description)
+        sources_object = Sources(id,name,urlToImage,category,description,url)
         sources_results.append(sources_object)
-        sources_results=sources_results[:4]
+        sources_results=sources_results[:10]
 
     return sources_results
