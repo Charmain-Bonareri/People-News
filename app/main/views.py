@@ -1,17 +1,17 @@
 from flask import render_template
-from app import app
-from  .request import get_sources,get_articles
+from . import main
+from  ..request import get_sources, get_articles
 import os
 
 
 imagesFolder = os.path.join('static','images')
 
-app.config['UPLOAD_FOLDER'] = imagesFolder
+main.config['UPLOAD_FOLDER'] = imagesFolder
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
-    header=os.path.join(app.config['UPLOAD_FOLDER'], 'header.jpg')
+    header=os.path.join(main.config['UPLOAD_FOLDER'], 'header.jpg')
 
     '''
     View root page function that returns the index page and its data
@@ -20,7 +20,7 @@ def index():
     title = 'People News'
     return render_template('index.html', title = title, sources = sources, user_image = header)
 
-@app.route('/articles/<sources_id>')
+@main.route('/articles/<sources_id>')
 def articles(sources_id):
     '''
     View articles page function that returns the  article details page and its data
