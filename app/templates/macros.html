@@ -36,16 +36,15 @@
 
     {% for articles in articles_list %}
 
-    <div class="col-md-6">
-        <div class="card">
+    <div class="col-md-4">
+        <div class="card" height="300" width="600">
             {% if articles.urlToImage %}
-            <img src="{{ articles.content }}" height="400" width="500" alt="{{ articles.title | truncate(10) }}">
+            <img src="{{ articles.content }}"  alt="{{ articles.title | truncate(12) }}">
             {% endif %}
           <div class="card-body">
             <h5 class="card-title">{{ articles.title }}</h5>
-            <p class="card-text">Uploaded on:{{ articles.publishedAt}} </p>
-            <p class="card-text"><small class="text-muted">Compiled by:{{ articles.author}}</small></p>
-            <p class="card-text"><small class="text-muted"><a href="{{ articles.url }}"><button>Read More...</button></a></small></p>
+            <p class="card-text">Created on:{{ articles.publishedAt}} </p>           
+            <p class="card-text"><small class="text-muted"><a href="{{ articles.url }}"><button>  read full article...</button></a></small></p>
 
           </div>
         </div>
