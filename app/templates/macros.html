@@ -5,21 +5,23 @@
 {% for sources in sources_list %}
 
 
-<div id="source" class="col-md-6">
+<div id="source" class="col-md-12">
 
       <!-- Card -->
   <div class="card card-image top" >
 
     <!-- Content -->
-    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+    <div class="text-black text-center d-flex align-items-center rgba-black-strong py-5 px-4">
       <div>
-        <h3 class="card-title pt-2"><strong>{{sources.name}}</strong></h3>
-        <p>{{sources.category}} news category</p>
-        <p>{{sources.description}}</p>      
+        <h3 class="card-title pt-2" ><strong>{{sources.name}}</strong></h3>
+        <hr>
+        <p style="font-size: smaller;"><i>{{sources.category}} news category </i> </p>
+        <p style="font-size: smaller; ">{{sources.description}}</p>      
        
 
-        <a href="/articles/{{sources.id}}" class="btn btn-pink"><i class="fas fa-clone left"></i>See article</a>
+        <a href="/articles/{{sources.id}}" class="btn btn-primary"><i class="fas fa-clone left"></i>See article</a>
       </div>
+    </div>
     </div>
 
   </div>
