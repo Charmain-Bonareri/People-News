@@ -1,5 +1,5 @@
 import urllib.request,json
-from .articles import Sources
+from .articles import Sources,Articles
 
 
 #Getting the API key
@@ -59,3 +59,47 @@ def process_sources(sources_list):
         sources_results=sources_results[:10]
 
     return sources_results
+
+def get_articles(sources_id):
+    '''
+    Function that gets the json results to our url request
+    '''
+    get_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=94d343343a714ec2b5f6a024996fe7d2'.format(sources_id,api_key)
+
+    with urllib.request.urlopen(get_articles_url) as url:
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
+
+        articles_results = None
+
+        if get_articles_response['articles']:
+            articles_results_list = get_articles_response['articles']
+            articles_results = process_articles(articles_results_list)
+    
+
+    return articles_results
+
+
+def process_articles(articles_list):
+    '''
+    Function that processes the articles result and transform them to a list of objects
+    Args:
+        articles_list:A list of dictionaries that contains articles details
+    Returns:
+        articles_results:A list of articles objects
+    '''
+    articles_results = []
+    for articles_item in articles_list:
+        title = articles_item.get('title')
+        urlToImage = articles_item.get('urlToImage')
+        content = articles_item.get('content')
+        author = articles_item.get('author')
+        publishedAt = articles_item.get('publishedAt')
+        url = articles_item.get('url')
+        # import pdb
+        # pdb.set_trace()
+        if title:
+            articles_object = Articles(title,content,urlToImage,author,publishedAt,url)
+            articles_results.append(articles_object)
+
+    return articles_results
